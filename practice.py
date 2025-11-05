@@ -453,7 +453,7 @@ class Sample:
         print(f'Object initializing')
 
 sobj = Sample()
-'''
+
 
 class singleton:
     _instance = None
@@ -470,3 +470,29 @@ class singleton:
     
 sObj = singleton()
 sObj = singleton()
+
+
+class understandClass:
+    _clsVariable = None
+
+    def initializeClsVar(cls):
+        cls._clsVariable = 'abc'
+        print(cls._clsVariable)
+
+csobj = understandClass()
+csobj.initializeClsVar()
+#understandClass.initializeClsVar() #as this is not a instance method it expects the object to passed
+#inorder to make the above method as instance method we should mark it with decorator
+'''
+class understandClassT:
+    _clsVariable = None
+
+    @classmethod
+    def initializeClsVar(cls):
+        cls._clsVariable = 'abc'
+        print(cls._clsVariable)
+
+csObjT = understandClassT()
+csObjT.initializeClsVar()
+
+understandClassT.initializeClsVar() #abc --> no error as clearly mentioned as class method
