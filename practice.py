@@ -483,7 +483,7 @@ csobj = understandClass()
 csobj.initializeClsVar()
 #understandClass.initializeClsVar() #as this is not a instance method it expects the object to passed
 #inorder to make the above method as instance method we should mark it with decorator
-'''
+
 class understandClassT:
     _clsVariable = None
 
@@ -496,3 +496,122 @@ csObjT = understandClassT()
 csObjT.initializeClsVar()
 
 understandClassT.initializeClsVar() #abc --> no error as clearly mentioned as class method
+
+class Animal:
+    def __init__(self):
+        print(self)
+
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+
+
+dog = Dog()
+
+class Animal:
+    def bark(self):
+        print('Animal is barking')
+
+class Dog(Animal):
+    pass
+
+animal = Dog()
+animal.bark()
+
+class Parent:
+    def ask(self):
+        print('inside parent asking.')
+
+class Child(Parent):
+    def ask(self):
+        #super().ask()
+        print('inside child ask.')
+
+ch = Child()
+ch.ask()
+
+#single inheritance
+class Employee:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Mdt(Employee):
+    def __init__(self, name, age, email):
+        super().__init__(name, age)
+        self.email = email
+
+mdtEmployee = Mdt('Mastan', 28, 'valis.mastan23@gmail.com')
+print(mdtEmployee.age)
+print(mdtEmployee.name)
+print(mdtEmployee.email)
+
+#multilevel inheritance 
+class A:
+    def __init__(self, a):
+        self.a = a
+
+    def printA(self):
+        print(f'A is {self.a}')
+        
+class B(A):
+    def __init__(self, a, b):
+        super().__init__(a)
+        self.b = b
+
+    def printB(self):
+        print(f'B is {self.b}')
+
+class C(B):
+    def __init__(self, a, b, c):
+        super().__init__(a, b)
+        self.c = c
+
+    def printC(self):
+        print(f'C is {self.c}')
+
+c = C(10, 20, 30)
+c.printA()
+c.printB()
+c.printC()
+
+
+#Multiple Inheritance
+class A:
+    def __init__(self):
+        pass
+
+class B:
+    def __init__(self):
+        pass
+
+class C(B, A):
+    def __init__(self):
+        pass
+
+c = C()
+print(c)
+
+
+#Hirarchical Inheritance
+class A:
+    def __init__(self):
+        pass
+    def AisCommon(self):
+        print('A is common')
+
+class B(A):
+    def __init__(self):
+        pass
+
+class C(A):
+    def __init__(self):
+        pass
+
+c = C()
+b = B()
+c.AisCommon()
+b.AisCommon()
+
+'''
+
