@@ -613,5 +613,29 @@ b = B()
 c.AisCommon()
 b.AisCommon()
 
-'''
 
+
+class A:
+    def greet(self):
+        print("A")
+
+class B(A):
+    def greet(self):
+        print("B")
+        super().greet()
+class C(A):
+    def greet(self):
+        print("C")
+        super().greet()
+
+class D(C, B):
+    def greet(self):
+        print("D")
+        super().greet()
+
+d = D()
+d.greet()
+print(D.mro())
+print(D.__mro__)
+
+'''
