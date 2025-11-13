@@ -355,7 +355,7 @@ def trickyInterviewQs(a, lst=[]):
 
 trickyInterviewQs(10)
 trickyInterviewQs(20) #In python default parameters are initiated once and stored in memory
-                        #so the same initiated lst will be reused.
+                        #so the same initiated lst will be reused.o/p will be 10, 20
 
 
 def func(a, b, c):
